@@ -1,0 +1,23 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.navbar li a{
+    color:#ffffff;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.dropdown-menu li a{
+    color: #000;
+}
+.btn-outline-success {
+    color: rgb(19, 18, 18);
+    border-color: rgb(255, 255, 255);
+    background-color: #eb4e4e;
+}
+
+.btn-outline-success:hover {
+    color: #28a745; /* Change to your desired hover color */
+    background-color: white;
+}
