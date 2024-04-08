@@ -1,5 +1,4 @@
 
-
 .content{
    
     height: auto;
@@ -19,8 +18,15 @@
 .content h1{
     font-family: 'Times New Roman';
     font-size: 45px;
-    padding-left: 20px;
-    margin-top: 9%;
+    padding-left: 22px;
+    margin-top: 8%;
+    letter-spacing: 2px;
+}
+.content h3{
+    font-family: 'Times New Roman';
+    font-size: 30px;
+    padding-left: 25px;
+   
     letter-spacing: 2px;
 }
 
@@ -139,17 +145,27 @@
     padding-bottom: 10px;
     text-align: center;
 }
-.icons a{
-    text-decoration: none;
-    color: #fff;
-}
-.icons ion-icon{
-    color: #fff;
+
+.icons a {
+  
     font-size: 30px;
     padding-left: 14px;
     padding-top: 5px;
     transition: 0.3s ease;
+   
+   
 }
-.icons ion-icon:hover{
+.icons i:hover{
     color: #ff7200;
 }
+
+.card-text{
+    font-weight:bold ;
+}
+.card-img-top{
+    height: 200px;
+}
+.bg{
+    background-image: linear-gradient(rgb(230, 123, 36));
+}
+
