@@ -1,0 +1,17 @@
+.mheading {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .card {
+    border-radius: 10px;
+  }
+  
+  .fa {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .fa:hover {
+    transform: scale(1.2);
+  }
+  
