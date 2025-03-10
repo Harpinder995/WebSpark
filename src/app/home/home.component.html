@@ -1,100 +1,172 @@
-<div class="container">
+ <!-- 🔹 Hero Section (Slider) -->
   <div class="row">
-    <div class="col-lg-8 col-md-8 ">
-      <div class="content">
-        <h1>
-        <span> WebSpark </span>
-        </h1> <br>
-        <h3>Leading Technical Training Company</h3><br>
-
-        <p class="par">
-          Embark on journey of digital innovation with WebSpark, your premier hub for web and app development courses.
-          Our meticulously curated curriculum caters to beginners and experts alike, covering everything from
-          foundational front-end technologies to advanced back-end frameworks. Dive into the world of app creation with
-          specialized courses in iOS, Android, and cross-platform development.</p>
-
-        <button class="join"><a href="#">JOIN US</a></button>
-
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-4  justify-content-center mt-5">
-      <img src="assets/images/onec.jpg" class="img-fluid" alt="Responsive image">
-
-      <!--  
-      <div class="cardmargin">
-      <div class="row" >
-        <div class="col-md-6 ">
-          <div class="card">
-            <div class="card-body">
-              <p class="card-text text-center">Website Development</p>
-            </div>
-            <img class="card-img-top" src="assets/images/onec.jpg" alt="Card image cap">
-
-          </div>
-        </div>
-        <div class="col-md-6 ">
-          <div class="card">
-            <div class="card-body">
-              <p class="card-text text-center">App Development</p>
-            </div>
-            <img class="card-img-top" src="assets/images/flutter.jpeg" alt="Card image cap">
-
-          </div>
+<div class="col-lg-1 col-md-1"> </div>
+<div class="col-lg-10 col-md-10">
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Carousel Indicators (Optional) -->
+    <ol class="carousel-indicators">
+      <li data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#heroCarousel" data-bs-slide-to="1"></li>
+    </ol>
+  
+    <!-- Carousel Items -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/images/bg1.jpg" class="d-block w-100 img-fluid" style="height: 600px; object-fit: cover;" alt="Training">
+        <div class="carousel-caption">
+          <h2 style="color: #ff7200;">Learn from Experts</h2>
+          <p>Join our training programs and boost your career!</p>
+          <a href="#" class="btn btn-success">Explore Courses</a>
         </div>
       </div>
-      
-      <div class="row">
-        <div class="col-md-6   ">
-          <div class="bg">
-            <img class="card-img-top" src="assets/images/onec.jpg" alt="Card image cap">
-            <div class="card">
-
-              <div class="card-body">
-
-                <p class="card-text text-center">Game Development</p>
-              </div>
-
-
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6   ">
-          <div class="bg">
-            <img class="card-img-top" src="assets/images/app.jpg" alt="Card image cap">
-            <div class="card">
-
-              <div class="card-body">
-
-                <p class="card-text text-center"> Web Designing</p>
-              </div>
-
-
-            </div>
-          </div>
+      <div class="carousel-item">
+        <img src="assets/images/bg2.jpg" class="d-block w-100 img-fluid" style="height: 600px; object-fit: cover;" alt="Certification">
+        <div class="carousel-caption">
+          <h2  style="color: #ff7200;">Get Certified & Job Ready</h2>
+          <p>Industry-recognized training & certification</p>
+          <a href="#" class="btn btn-success">Enroll Now</a>
         </div>
       </div>
     </div>
--->
-
-
+  
+    <!-- Carousel Controls (Left & Right Arrows) -->
+    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+  
+  
+  <!-- 🔹 Featured Courses -->
+  <div class="container my-5">
+    <h2 class="text-center mheading">Build Your Future with Expert Training</h2>
+<p class=" text-center">At WebSpark, we offer industry-focused courses designed to equip you with the latest skills and hands-on experience. Whether you're a beginner or looking to upgrade your expertise, our courses provide practical training, real-world projects, and expert mentorship to help you excel in the tech industry. <br>
+Explore our wide range of web development, programming, and technology courses and take the next step toward a successful career! 🚀 </p>
+   
+    <div class="row">
+      <div class="col-md-4 col-lg-4 col-sm-4">
+        <div class="card m-2 p-1">
+          <img src="assets/images/php.jpeg" class="card-img-top" alt="PHP">
+          <div class="card-body text-center">
+            <h5 class="cardtitle">PHP Course</h5>
+            <p class="card-text">Learn backend development with PHP</p>
+            <a href="#" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card m-2 p-1">
+          <img src="assets/images/angular.jpeg" class="card-img-top" alt="PHP">
+          <div class="card-body text-center">
+            <h5 class="cardtitle">Angular Course</h5>
+            <p class="card-text">Master frontend development with Angular</p>
+            <a href="#" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</a>
+          </div>
+        </div>
+       
+      </div>
+      <div class="col-md-4">
+        <div class="card m-2 p-1">
+          <img src="assets/images/django.png" class="card-img-top" alt="PHP">
+          <div class="card-body text-center">
+            <h5 class="cardtitle">Django Course</h5>
+            <p class="card-text">Learn Django for backend development</p>
+            <a href="#" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</a>
+          </div>
+        </div>
+       
+      </div>
+      <div class="col-md-4">
+        <div class="card m-2 p-1">
+          <img src="assets/images/flutter.jpeg" class="card-img-top" alt="PHP">
+          <div class="card-body text-center">
+            <h5 class="cardtitle">Flutter Course</h5>
+            <p class="card-text">Learn Cross Platform App Development</p>
+            <a href="#" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</a>
+          </div>
+        </div>
+       
+      </div>
+      <div class="col-md-4">
+        <div class="card m-2 p-1">
+          <img src="assets/images/java.png" class="card-img-top" alt="PHP">
+          <div class="card-body text-center">
+            <h5 class="cardtitle">Java Course</h5>
+            <p class="card-text">Learn Java for backend development</p>
+            <a href="#" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</a>
+          </div>
+        </div>
+       
+      </div>
+      <div class="col-md-4">
+        <div class="card m-2 p-1">
+          <img src="assets/images/react.jpeg" class="card-img-top" alt="PHP">
+          <div class="card-body text-center">
+            <h5 class="cardtitle">React Course</h5>
+            <p class="card-text">Learn React for frontend development</p>
+            <a href="#" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#enrollModal">Enroll Now</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- 
-    <div class="form "> 
-      <h2>Login Here</h2>
-      <input type="email" name="email" placeholder="Enter Email Here">
-      <input type="password" name="" placeholder="Enter Password Here">
-      <button class="btnn"><a href="#">Login</a></button>
+  </div>
 
-      <p class="link">Don't have an account,<br>
-        <a href="#">Sign up </a>here
-      </p>
-      <p class="liw">Log in with  </p>
-     
-      <div class="icons"> 
-        <a href="#"><i class="fa-brands fa-facebook" ></i> </a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter" ></i> </a>
-        <a href="#"><i class="fa-brands fa-youtube-play"></i>  </a>
-      </div>  -->
+<div class="container my-4">
+  <h2 class="text-center mheading ">Why Choose Us?</h2>
+  <div class="row text-center p-1 m-2">
+    <div class="col-md-4">
+      <i class="fas fa-chalkboard-teacher fa-3x text-success"></i>
+      <h5>Expert Instructors</h5>
+      <p>Learn from industry professionals with hands-on experience.</p>
+    </div>
+    <div class="col-md-4">
+      <i class="fas fa-laptop-code fa-3x text-success"></i>
+      <h5>Practical Learning</h5>
+      <p>Real-world projects & case studies for better understanding.</p>
+    </div>
+    <div class="col-md-4">
+      <i class="fas fa-certificate fa-3x text-success"></i>
+      <h5>Certification</h5>
+      <p>Get industry-recognized certificates after course completion.</p>
+    </div>
   </div>
 </div>
+<div class="container my-5">
+  <h2 class="text-center mheading">What Our Students Say</h2>
+  <div id="testimonialCarousel" class="carousel slide text-center"  data-bs-ride="carousel">
+    <div class="carousel-inner" >
+      <div class="carousel-item active">
+        <p>"The best training experience! The instructors were amazing."</p>
+        <h6>- Rajesh Kumar</h6>
+      </div>
+      <div class="carousel-item">
+        <p>"Great hands-on projects, really helped me understand React!"</p>
+        <h6>- Simran Kaur</h6>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon custom-carousel-btn"></span>
+    </a>
+    
+    <!-- Right Button -->
+    <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon custom-carousel-btn"></span>
+    </a>
+    
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-lg-1 col-md-1"> </div>
+  </div>
+

@@ -1,11 +1,22 @@
-
-*{
-margin: 0;
-padding: 0;
-
-
-}
-.container h5 {
-   
+footer a:hover {
+  text-decoration: underline;
   color: #ff7200;
+}
+.footer-heading {
+  color: #ff7200; 
+}
+
+.text-decoration-none {
+  text-decoration: none !important; /* Removes underline */
+}
+.social-icon {
+  color: #ff7200;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-icon:hover {
+  color: #28a745; /* Green color on hover */
+  text-decoration: none;
 }
