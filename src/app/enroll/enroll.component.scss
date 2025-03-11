@@ -1,0 +1,50 @@
+.mheading{
+    border-bottom: 1px solid #348214;
+    margin-bottom: 20px;
+    color: #ff7200;
+    font-weight: 600;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.formhead{
+    color: #28a745;
+    font-weight: 700;
+}
+form {
+    max-width: 600px;
+    margin: auto;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+
+
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-check-label {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border-radius: 8px;
+}

@@ -18,4 +18,14 @@
   .fa:hover {
     transform: scale(1.2);
   }
+  .social-icon {
+    color: #ff7200;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+  }
   
+  .social-icon:hover {
+    color: #28a745; /* Green color on hover */
+    text-decoration: none;
+  }

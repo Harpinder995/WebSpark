@@ -1,0 +1,109 @@
+<div class="row">
+    <div class="col-lg-2 col-md-2"></div>
+    <div class="col-lg-8 col-md-8">
+        <div class="container my-5">
+            <h2 class="mheading text-center mb-4">Enroll Now</h2>
+
+            <form action="enroll.php" method="post" enctype="multipart/form-data" class="p-4 bg-light rounded shadow">
+
+                <!-- User Details -->
+                <div class="mb-3">
+                    <input type="text" name="name" class="form-control" placeholder="Full Name *" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" name="email" class="form-control" placeholder="Email *" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="phone" class="form-control" placeholder="Phone Number *" required>
+                </div>
+
+                <!-- Course Selection -->
+                <div class="mb-3">
+                    <label class="form-label"><b>Select Course *</b></label>
+                    <select name="course" id="course" class="form-select" required onchange="updateCourseFee()">
+                        <option value="" disabled selected>Select Course</option>
+                        <option value="PHP Development" data-fee="₹5,000">PHP Development - ₹5,000</option>
+                        <option value="Angular Training" data-fee="₹8,000">Angular Training - ₹8,000</option>
+                        <option value="React JS Course" data-fee="₹7,500">React JS Course - ₹7,500</option>
+                        <option value="Django Full Stack" data-fee="₹10,000">Django Full Stack - ₹10,000</option>
+                    </select>
+                </div>
+
+                <!-- Display Course Fee -->
+                <div class="mb-3">
+                    <label class="form-label"><b>Course Fee:</b></label>
+                    <input type="text" id="courseFee" class="form-control" readonly placeholder="Select a course to see fee">
+                </div>
+
+                <!-- Duration (Radio Buttons) -->
+                <div class="mb-3">
+                    <label class="form-label"><b>Course Duration *</b></label>
+                    <div class="d-flex gap-3">
+                        <div class="form-check">
+                            <input type="radio" id="duration1" name="duration" value="1 Month" class="form-check-input" required>
+                            <label for="duration1" class="form-check-label">1 Month</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="duration3" name="duration" value="3 Months" class="form-check-input">
+                            <label for="duration3" class="form-check-label">3 Months</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="duration6" name="duration" value="6 Months" class="form-check-input">
+                            <label for="duration6" class="form-check-label">6 Months</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course Level (Radio Buttons) -->
+                <div class="mb-3">
+                    <label class="form-label"><b>Course Level *</b></label>
+                    <div class="d-flex gap-3">
+                        <div class="form-check">
+                            <input type="radio" id="beginner" name="level" value="Beginner" class="form-check-input" required>
+                            <label for="beginner" class="form-check-label">Beginner</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="advanced" name="level" value="Advanced" class="form-check-input">
+                            <label for="advanced" class="form-check-label">Advanced</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Training Type -->
+                <div class="mb-3">
+                    <label class="form-label"><b>Training Type *</b></label>
+                    <div class="d-flex gap-3">
+                        <div class="form-check">
+                            <input type="radio" id="training" name="training" value="Training" class="form-check-input" required>
+                            <label for="training" class="form-check-label">Training</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" id="internship" name="training" value="Internship" class="form-check-input">
+                            <label for="internship" class="form-check-label">Internship</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QR Code for Payment -->
+                <div class="text-center my-4">
+                    <img src="assets/images/qr.png" alt="Scan to Pay" class="img-fluid" style="max-width: 200px;">
+                    <p>Scan the QR code above to make the payment and take the screenshot</p>
+                </div>
+
+                <!-- Payment Screenshot Upload -->
+                <div class="mb-3">
+                    <label class="form-label"><b>Upload Payment Screenshot *</b></label>
+                    <input type="file" name="payment_screenshot" class="form-control" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Submit Enrollment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-2"></div>
+</div>
+
+<!-- JavaScript to Show Course Fee -->
