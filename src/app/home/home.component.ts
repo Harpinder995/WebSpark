@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
-    imports: [FooterComponent,MatIconModule, RouterLink]
+    imports: [MatIconModule, RouterLink]
 })
 export class HomeComponent {
 
