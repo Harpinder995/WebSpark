@@ -10,32 +10,33 @@
       <div class="col-md-6">
         <div class="card p-4 shadow-lg">
           <h4 class="mb-3" >Get in Touch</h4>
-          <form action="contact.php" method="post" class="p-4 bg-light rounded shadow">
+          <form (ngSubmit)="onSubmit()"  class="p-4 bg-light rounded shadow">
             <!-- Name -->
             <div class="mb-3">
-                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+              <input type="text" formControlName="name" class="form-control" placeholder="Full Name" required>
             </div>
-            
+          
             <!-- Email -->
             <div class="mb-3">
-                <input type="email" name="email" class="form-control" placeholder="Email" required>
+              <input type="email" formControlName="email" class="form-control" placeholder="Email" required>
             </div>
-            
+          
             <!-- Phone -->
             <div class="mb-3">
-                <input type="text" name="phone" class="form-control" placeholder="Phone Number" required>
+              <input type="text" formControlName="phone" class="form-control" placeholder="Phone Number" required>
             </div>
-            
+          
             <!-- Message -->
             <div class="mb-3">
-                <textarea name="message" class="form-control" placeholder="Your Message" rows="4" required></textarea>
+              <textarea formControlName="message" class="form-control" placeholder="Your Message" rows="4" required></textarea>
             </div>
-
+          
             <!-- Submit Button -->
             <div class="d-grid">
-                <button type="submit" class="btn btn-success">Submit</button>
+              <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid">Submit</button>
             </div>
-        </form>
+          </form>
+          
         </div>
       </div>
   

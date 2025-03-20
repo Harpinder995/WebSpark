@@ -20,19 +20,13 @@
                 <!-- Course Selection -->
                 <div class="mb-3">
                     <label class="form-label"><b>Select Course *</b></label>
-                    <select name="course" id="course" class="form-select" required onchange="updateCourseFee()">
+                    <select name="course" id="course" class="form-select" required>
                         <option value="" disabled selected>Select Course</option>
-                        <option value="PHP Development" data-fee="₹5,000">PHP Development - ₹5,000</option>
-                        <option value="Angular Training" data-fee="₹8,000">Angular Training - ₹8,000</option>
-                        <option value="React JS Course" data-fee="₹7,500">React JS Course - ₹7,500</option>
-                        <option value="Django Full Stack" data-fee="₹10,000">Django Full Stack - ₹10,000</option>
+                        <option value="PHP Development">PHP Development</option>
+                        <option value="Angular Training">Angular Training</option>
+                        <option value="React JS Course">React JS Course</option>
+                        <option value="Django Full Stack">Django Full Stack</option>
                     </select>
-                </div>
-
-                <!-- Display Course Fee -->
-                <div class="mb-3">
-                    <label class="form-label"><b>Course Fee:</b></label>
-                    <input type="text" id="courseFee" class="form-control" readonly placeholder="Select a course to see fee">
                 </div>
 
                 <!-- Duration (Radio Buttons) -->
@@ -74,26 +68,36 @@
                     <label class="form-label"><b>Training Type *</b></label>
                     <div class="d-flex gap-3">
                         <div class="form-check">
-                            <input type="radio" id="training" name="training" value="Training" class="form-check-input" required>
-                            <label for="training" class="form-check-label">Training</label>
+                            <input type="radio" id="online" name="training_type" value="Online" class="form-check-input" required>
+                            <label for="online" class="form-check-label">Online</label>
                         </div>
                         <div class="form-check">
-                            <input type="radio" id="internship" name="training" value="Internship" class="form-check-input">
-                            <label for="internship" class="form-check-label">Internship</label>
+                            <input type="radio" id="offline" name="training_type" value="Offline" class="form-check-input">
+                            <label for="offline" class="form-check-label">Offline</label>
                         </div>
                     </div>
                 </div>
 
-                <!-- QR Code for Payment -->
-                <div class="text-center my-4">
-                    <img src="assets/images/qr.png" alt="Scan to Pay" class="img-fluid" style="max-width: 200px;">
-                    <p>Scan the QR code above to make the payment and take the screenshot</p>
+                <!-- Additional Suggested Fields -->
+          
+
+                <!-- How Did You Hear About Us? -->
+                <div class="mb-3">
+                    <label class="form-label"><b>How Did You Hear About Us?</b></label>
+                    <select name="source" id="source" class="form-select">
+                        <option value="" disabled selected>Select Option</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Friend/Referral">Friend/Referral</option>
+                        <option value="Google Search">Google Search</option>
+                        <option value="Advertisement">Advertisement</option>
+                        <option value="Other">Other</option>
+                    </select>
                 </div>
 
-                <!-- Payment Screenshot Upload -->
+                <!-- Additional Notes -->
                 <div class="mb-3">
-                    <label class="form-label"><b>Upload Payment Screenshot *</b></label>
-                    <input type="file" name="payment_screenshot" class="form-control" required>
+                    <label class="form-label"><b>Additional Notes or Questions</b></label>
+                    <textarea name="notes" class="form-control" rows="4" placeholder="Enter any additional information or questions you have..."></textarea>
                 </div>
 
                 <!-- Submit Button -->
@@ -105,5 +109,3 @@
     </div>
     <div class="col-lg-2 col-md-2"></div>
 </div>
-
-<!-- JavaScript to Show Course Fee -->
