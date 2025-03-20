@@ -8,10 +8,14 @@
     
 }
 .navbar li a{
-    color: white;
+    color: black;
 }
 
 .navbar li a:hover {
+    color: rgb(52, 130, 20);
+
+}
+.navbar li a:active {
     color: rgb(52, 130, 20);
 
 }

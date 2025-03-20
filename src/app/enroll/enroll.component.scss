@@ -9,7 +9,15 @@ form {
     background-color: #f8f9fa;
     border-radius: 10px;
 }
-
+.mheading{
+    border-bottom: 1px solid #348214;
+    margin-bottom: 20px;
+    color: #ff7200;
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+}
+  
 
 
 .form-control, .form-select {
@@ -40,3 +48,6 @@ input[type="file"] {
     padding: 10px;
     border-radius: 8px;
 }
+.btn:hover{
+    background-color: #ff7200;
+  }

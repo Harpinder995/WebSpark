@@ -49,3 +49,7 @@ h1,h2,h3{
     height: 200px; /* Fixed height for images */
     object-fit: contain; /* Ensures images fill the space properly */
   }
+
+  .btn:hover{
+    background-color: #ff7200;
+  }

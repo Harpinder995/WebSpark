@@ -1,14 +1,19 @@
-footer a:hover {
-  text-decoration: underline;
-  color: #ff7200;
-}
 .footer-heading {
   color: #ff7200; 
 }
 
 .text-decoration-none {
-  text-decoration: none !important; /* Removes underline */
+  text-decoration: none !important; 
 }
+
+.fa {
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa:hover {
+  transform: scale(1.2);
+}
+
 .social-icon {
   color: #ff7200;
   font-size: 24px;
@@ -17,6 +22,21 @@ footer a:hover {
 }
 
 .social-icon:hover {
-  color: #28a745; /* Green color on hover */
+  color: #28a745;
   text-decoration: none;
+}
+
+/* Hover effect for footer router links */
+a[routerLink] {
+  color: white; /* Default link color */
+  transition: color 0.3s ease-in-out;
+}
+
+a[routerLink]:hover {
+  color: #28a745 !important; /* Green color on hover */
+  text-decoration: underline !important;
+}
+
+.btn:hover {
+  background-color: #ff7200;
 }
