@@ -1,0 +1,80 @@
+<div class="container-fluid">
+    <div class="row">
+<div class="col-lg-1 col-md-1"></div>
+<div class="col-lg-10 col-md-10">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-2 sidebar">
+          <div class="logo">
+            <img src="assets/images/logo1.png" alt="Logo" width="170" height="65" />
+            <h3>WebSpark</h3>
+          </div>
+          <a (click)="showSection('queries')" [class.active]="currentSection === 'queries'">
+            <i class="fas fa-envelope"></i> Contact Queries
+          </a>
+          <a (click)="showSection('enrollments')" [class.active]="currentSection === 'enrollments'">
+            <i class="fas fa-user-graduate"></i> Course Enrollments
+          </a>
+          <a (click)="showSection('dashboard')" [class.active]="currentSection === 'dashboard'">
+            <i class="fas fa-chart-line"></i> Dashboard Stats
+          </a>
+        </div>
+    
+        <!-- Main Content -->
+        <div class="col-md-10 content">
+          <h2 class="text-center my-4">WebSpark Admin Dashboard</h2>
+    
+          <!-- Conditional Section Rendering -->
+          <div *ngIf="currentSection === 'dashboard'">
+            <h3 class="text-center my-4">Enrollment and Queries Trends</h3>
+            <canvas id="enrollmentChart"></canvas>
+          </div>
+    
+          <div *ngIf="currentSection === 'queries'">
+            <h3 class="my-4">Contact Queries</h3>
+            <div class="card p-3" *ngFor="let query of contactQueries">
+              <h5 class="card-title">{{ query.name }}</h5>
+              <p><b>Email:</b> {{ query.email }}</p>
+              <p><b>Phone:</b> {{ query.phone }}</p>
+              <p><b>Message:</b> {{ query.message }}</p>
+              <div class="actions">
+                <a [href]="'mailto:' + query.email" class="btn btn-primary">
+                  <i class="fas fa-envelope"></i> Reply
+                </a>
+                <a [href]="'tel:' + query.phone" class="btn btn-success">
+                  <i class="fas fa-phone"></i> Call
+                </a>
+              </div>
+            </div>
+          </div>
+    
+          <div *ngIf="currentSection === 'enrollments'">
+            <h3 class="my-4">Course Enrollments</h3>
+            <div class="card p-3" *ngFor="let enrollment of courseEnrollments">
+              <h5 class="card-title">{{ enrollment.name }}</h5>
+              <p><b>Email:</b> {{ enrollment.email }}</p>
+              <p><b>Phone:</b> {{ enrollment.phone }}</p>
+              <p><b>Course:</b> {{ enrollment.course }}</p>
+              <p><b>Duration:</b> {{ enrollment.duration }}</p>
+              <p><b>Training Type:</b> {{ enrollment.type }}</p>
+              <div class="actions">
+                <a [href]="'mailto:' + enrollment.email" class="btn btn-primary">
+                  <i class="fas fa-envelope"></i> Email
+                </a>
+                <a [href]="'tel:' + enrollment.phone" class="btn btn-success">
+                  <i class="fas fa-phone"></i> Call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+</div>
+
+<div class="col-lg-1 col-md-1"></div>
+
+    </div>
+  
+  </div>
+  
