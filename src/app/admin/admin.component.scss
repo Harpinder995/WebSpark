@@ -15,7 +15,7 @@
 }
 
 .sidebar a.active, .sidebar a:hover {
-  background-color: #007bff;
+  background-color: #ff7200;
 }
 
 .content {
@@ -54,4 +54,7 @@
 
 .pagination-controls {
   padding: 10px 0; /* Space around buttons */
+}
+.info-card{
+  border-radius: 10px;
 }
