@@ -1,21 +1,25 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // ✅ Ensure it's provided in root
 })
 export class ContactService {
-  private apiUrl = 'http://localhost/websparkback/contact.php';  // PHP URL
+
+  private apiUrl = 'http://localhost/websparkback/contacts.php'; // ✅ Correct URL to PHP file
 
   constructor(private http: HttpClient) {}
 
-  // Method to submit the form data to the PHP backend
-  submitContactForm(formData: any): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded'
-    });
+  submitForm(contactData: any): Observable<any> {
+    const formData = new FormData();
+    formData.append('name', contactData.name);
+    formData.append('email', contactData.email);
+    formData.append('phone', contactData.phone);
+    formData.append('message', contactData.message);
+    console.log('Sending data:', formData,contactData); // ✅ Debug log
 
-    return this.http.post(this.apiUrl, formData, { headers });
+    return this.http.post(this.apiUrl, formData);
+    
   }
 }
