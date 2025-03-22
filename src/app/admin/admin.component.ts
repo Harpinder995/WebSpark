@@ -1,19 +1,22 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { AdminService } from '../services/admin.service'; // Import Admin Service
-import { CommonModule } from '@angular/common';  // Import CommonModule for *ngIf, *ngFor
+import { CommonModule } from '@angular/common'; // Import CommonModule for *ngIf, *ngFor
 import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CommonModule],  // Include CommonModule here
+  imports: [CommonModule], // Include CommonModule here
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements AfterViewInit {
-  currentSection = 'dashboard';  // Default section
+  currentSection = 'dashboard'; // Default section
   contactQueries: any[] = [];
   courseEnrollments: any[] = [];
+  currentPage: number = 1; // Pagination for queries
+  currentEnrollmentPage: number = 1; // Pagination for enrollments
+  itemsPerPage: number = 8; // 8 items per page (applies to both queries and enrollments)
   private chart: Chart | null = null;
 
   constructor(private adminService: AdminService) {}
@@ -23,6 +26,7 @@ export class AdminComponent implements AfterViewInit {
     this.showSection('dashboard');
   }
 
+  // Load Contact Queries
   loadContactQueries() {
     this.adminService.getContactQueries().subscribe(
       (data) => {
@@ -34,6 +38,7 @@ export class AdminComponent implements AfterViewInit {
     );
   }
 
+  // Load Course Enrollments
   loadCourseEnrollments() {
     this.adminService.getCourseEnrollments().subscribe(
       (data) => {
@@ -45,6 +50,7 @@ export class AdminComponent implements AfterViewInit {
     );
   }
 
+  // Load Dashboard Data
   loadDashboardData() {
     this.adminService.getDashboardData().subscribe(
       (data) => {
@@ -57,6 +63,7 @@ export class AdminComponent implements AfterViewInit {
     );
   }
 
+  // Change the visible section (dashboard, queries, enrollments)
   showSection(section: string) {
     this.currentSection = section;
     if (section === 'queries') {
@@ -68,6 +75,7 @@ export class AdminComponent implements AfterViewInit {
     }
   }
 
+  // Create Dashboard Chart
   private createChart(chartData: number[]) {
     if (this.chart) {
       this.chart.destroy();
@@ -94,6 +102,50 @@ export class AdminComponent implements AfterViewInit {
           },
         },
       });
+    }
+  }
+
+  // Pagination logic for Queries
+  get totalPages(): number {
+    return Math.ceil(this.contactQueries.length / this.itemsPerPage);
+  }
+
+  paginatedQueries(): any[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return this.contactQueries.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  // Pagination logic for Enrollments
+  get totalEnrollmentPages(): number {
+    return Math.ceil(this.courseEnrollments.length / this.itemsPerPage);
+  }
+
+  paginatedEnrollments(): any[] {
+    const startIndex = (this.currentEnrollmentPage - 1) * this.itemsPerPage;
+    return this.courseEnrollments.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
+  nextEnrollmentPage() {
+    if (this.currentEnrollmentPage < this.totalEnrollmentPages) {
+      this.currentEnrollmentPage++;
+    }
+  }
+
+  prevEnrollmentPage() {
+    if (this.currentEnrollmentPage > 1) {
+      this.currentEnrollmentPage--;
     }
   }
 }

@@ -23,7 +23,7 @@ export class EnrollService {
     formData.append('source', enrollData.source);
     formData.append('notes', enrollData.notes);
 
-    console.log('Sending enrollment data:', formData, enrollData); // ✅ Debugging log to check submitted data
+  //  console.log('Sending enrollment data:', formData, enrollData); // ✅ Debugging log to check submitted data
 
     return this.http.post(this.apiUrl, formData); // Sending form data to the backend
   }

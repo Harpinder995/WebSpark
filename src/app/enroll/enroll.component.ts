@@ -27,12 +27,27 @@ export class EnrollComponent {
   constructor(private enrollService: EnrollService) {}
 
   onSubmit() {
-    this.enrollService.submitEnrollment(this.enrollData).subscribe(response => {
-      console.log('Enrollment form submitted successfully', response);
-      alert('Enrollment submitted successfully!');
-    }, error => {
-      console.error('Error submitting enrollment form', error);
-      alert('Failed to submit enrollment');
-    });
+    this.enrollService.submitEnrollment(this.enrollData).subscribe(
+      (response) => {
+        alert('Enrollment submitted successfully! Please check your email for further details');
+  
+        // Reset the form fields after successful submission
+       this.enrollData = {
+          name: '',
+          email: '',
+          phone: '',
+          course: '',
+          duration: '',
+          level: '',
+          training_type: '',
+          source: '',
+          notes: ''
+        };
+      },
+      (error) => {
+        console.error('Error submitting enrollment form', error);
+        alert('Failed to submit enrollment');
+      }
+    );
   }
 }

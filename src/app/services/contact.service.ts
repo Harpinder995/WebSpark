@@ -17,7 +17,7 @@ export class ContactService {
     formData.append('email', contactData.email);
     formData.append('phone', contactData.phone);
     formData.append('message', contactData.message);
-    console.log('Sending data:', formData,contactData); // ✅ Debug log
+   // console.log('Sending data:', formData,contactData); // ✅ Debug log
 
     return this.http.post(this.apiUrl, formData);
     

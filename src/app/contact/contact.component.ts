@@ -7,9 +7,9 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  styleUrls: ['./contact.component.scss']  // Fixed "styleUrl" to "styleUrls"
 })
 export class ContactComponent {
   contactData = {
@@ -22,13 +22,22 @@ export class ContactComponent {
   constructor(private contactService: ContactService) {}
 
   onSubmit() {
-    this.contactService.submitForm(this.contactData).subscribe(response => {
-      console.log('Form submitted successfully', response);
-      alert('Message sent successfully!');
-    }, error => {
+  this.contactService.submitForm(this.contactData).subscribe(
+    (response) => {
+      alert('Message sent successfully! Please check your email for further details');
+
+      // Reset the form fields after successful submission
+      this.contactData = {
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      };
+    },
+    (error) => {
       console.error('Error submitting form', error);
       alert('Failed to send message');
-    });
-  }
+    }
+  );
 }
-  
+}

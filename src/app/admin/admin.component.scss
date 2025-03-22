@@ -1,25 +1,57 @@
+.sidebar {
+  height: 100vh;
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+}
 
-  .sidebar {
-    height: 100vh;
-    background-color: #343a40;
-    color: white;
-    padding: 20px;
-  }
-  
-  .sidebar a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .sidebar a.active, .sidebar a:hover {
-    background-color: #007bff;
-  }
-  
-  .content {
-    padding: 20px;
-  }
-  
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.sidebar a.active, .sidebar a:hover {
+  background-color: #007bff;
+}
+
+.content {
+  padding: 20px;
+}
+
+.scrollable-content {
+  max-height: calc(100vh - 150px); /* Adjust height to leave space for header + pagination */
+  overflow-y: auto; /* Scroll within content */
+  padding: 15px;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.query-card, .enrollment-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  transition: box-shadow 0.2s ease;
+}
+
+.query-card:hover, .enrollment-card:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.pagination-controls {
+  padding: 10px 0; /* Space around buttons */
+}

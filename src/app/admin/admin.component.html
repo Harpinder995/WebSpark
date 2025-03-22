@@ -1,8 +1,8 @@
 <div class="container-fluid">
-    <div class="row">
-<div class="col-lg-1 col-md-1"></div>
-<div class="col-lg-10 col-md-10">
-    <div class="row">
+  <div class="row">
+    <div class="col-lg-1 col-md-1"></div>
+    <div class="col-lg-10 col-md-10">
+      <div class="row">
         <!-- Sidebar -->
         <div class="col-md-2 sidebar">
           <div class="logo">
@@ -19,62 +19,108 @@
             <i class="fas fa-chart-line"></i> Dashboard Stats
           </a>
         </div>
-    
+
         <!-- Main Content -->
         <div class="col-md-10 content">
           <h2 class="text-center my-4">WebSpark Admin Dashboard</h2>
-    
+
           <!-- Conditional Section Rendering -->
-          <div *ngIf="currentSection === 'dashboard'">
-            <h3 class="text-center my-4">Enrollment and Queries Trends</h3>
-            <canvas id="enrollmentChart"></canvas>
-          </div>
-    
-          <div *ngIf="currentSection === 'queries'">
-            <h3 class="my-4">Contact Queries</h3>
-            <div class="card p-3" *ngFor="let query of contactQueries">
-              <h5 class="card-title">{{ query.name }}</h5>
-              <p><b>Email:</b> {{ query.email }}</p>
-              <p><b>Phone:</b> {{ query.phone }}</p>
-              <p><b>Message:</b> {{ query.message }}</p>
-              <div class="actions">
-                <a [href]="'mailto:' + query.email" class="btn btn-primary">
-                  <i class="fas fa-envelope"></i> Reply
-                </a>
-                <a [href]="'tel:' + query.phone" class="btn btn-success">
-                  <i class="fas fa-phone"></i> Call
-                </a>
+          <div *ngIf="currentSection === 'dashboard'" class="dashboard-container">
+            <div class="row my-4">
+              <div class="col-md-4">
+                <div class="info-card bg-primary text-white p-4 rounded-lg shadow">
+                  <i class="fas fa-users fa-2x mb-2"></i>
+                  <h4>Total Enrollments</h4>
+                  <p>{{ courseEnrollments.length }} students enrolled</p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="info-card bg-success text-white p-4 rounded-lg shadow">
+                  <i class="fas fa-envelope-open-text fa-2x mb-2"></i>
+                  <h4>Contact Queries</h4>
+                  <p>{{ contactQueries.length }} queries received</p>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="info-card bg-warning text-white p-4 rounded-lg shadow">
+                  <i class="fas fa-chart-line fa-2x mb-2"></i>
+                  <h4>Performance Metrics</h4>
+                  <p>Data updated regularly</p>
+                </div>
               </div>
             </div>
           </div>
-    
-          <div *ngIf="currentSection === 'enrollments'">
-            <h3 class="my-4">Course Enrollments</h3>
-            <div class="card p-3" *ngFor="let enrollment of courseEnrollments">
-              <h5 class="card-title">{{ enrollment.name }}</h5>
-              <p><b>Email:</b> {{ enrollment.email }}</p>
-              <p><b>Phone:</b> {{ enrollment.phone }}</p>
-              <p><b>Course:</b> {{ enrollment.course }}</p>
-              <p><b>Duration:</b> {{ enrollment.duration }}</p>
-              <p><b>Training Type:</b> {{ enrollment.type }}</p>
-              <div class="actions">
-                <a [href]="'mailto:' + enrollment.email" class="btn btn-primary">
-                  <i class="fas fa-envelope"></i> Email
-                </a>
-                <a [href]="'tel:' + enrollment.phone" class="btn btn-success">
-                  <i class="fas fa-phone"></i> Call
-                </a>
+
+          <!-- Queries Section -->
+          <div *ngIf="currentSection === 'queries'" class="queries-container">
+            <h2 class="my-4 text-center sticky-header">Contact Queries</h2>
+            
+            <div class="scrollable-content">
+              <div *ngFor="let query of paginatedQueries()" class="query-card card p-3 mb-3 shadow rounded">
+                <h5 class="card-title">{{ query.name }}</h5>
+                <p><b>Email:</b> {{ query.email }}</p>
+                <p><b>Phone:</b> {{ query.phone }}</p>
+                <p><b>Message:</b> {{ query.message }}</p>
+                <div class="actions mt-2">
+                  <a [href]="'mailto:' + query.email" class="btn btn-primary btn-sm">
+                    <i class="fas fa-envelope"></i> Reply
+                  </a>
+                  <a [href]="'tel:' + query.phone" class="btn btn-success btn-sm">
+                    <i class="fas fa-phone"></i> Call
+                  </a>
+                </div>
               </div>
+            </div>
+          
+            <!-- Pagination outside the scroll -->
+            <div class="pagination-controls text-center mt-3">
+              <button class="btn btn-outline-secondary mx-2" (click)="prevPage()" [disabled]="currentPage === 1">
+                <i class="fas fa-chevron-left"></i> Previous
+              </button>
+              <span>Page {{ currentPage }} of {{ totalPages }}</span>
+              <button class="btn btn-outline-secondary mx-2" (click)="nextPage()" [disabled]="currentPage === totalPages">
+                Next <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Enrollment Section -->
+          <div *ngIf="currentSection === 'enrollments'" class="enrollments-container">
+            <h2 class="my-4 text-center sticky-header">Course Enrollments</h2>
+            <div class="scrollable-content">
+              <div *ngFor="let enrollment of paginatedEnrollments()" class="enrollment-card card p-3 mb-3 shadow rounded">
+                <h5 class="card-title">{{ enrollment.name }}</h5>
+                <p><b>Email:</b> {{ enrollment.email }}</p>
+                <p><b>Phone:</b> {{ enrollment.phone }}</p>
+                <p><b>Course:</b> {{ enrollment.course }}</p>
+                <p><b>Duration:</b> {{ enrollment.duration }}</p>
+                <p><b>Training Type:</b> {{ enrollment.type }}</p>
+                <div class="actions mt-2">
+                  <a [href]="'mailto:' + enrollment.email" class="btn btn-primary btn-sm">
+                    <i class="fas fa-envelope"></i> Email
+                  </a>
+                  <a [href]="'tel:' + enrollment.phone" class="btn btn-success btn-sm">
+                    <i class="fas fa-phone"></i> Call
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pagination-controls text-center sticky-pagination">
+              <button class="btn btn-outline-secondary mx-2" (click)="prevEnrollmentPage()" [disabled]="currentEnrollmentPage === 1">
+                <i class="fas fa-chevron-left"></i> Previous
+              </button>
+              <span>Page {{ currentEnrollmentPage }} of {{ totalEnrollmentPages }}</span>
+              <button class="btn btn-outline-secondary mx-2" (click)="nextEnrollmentPage()" [disabled]="currentEnrollmentPage === totalEnrollmentPages">
+                Next <i class="fas fa-chevron-right"></i>
+              </button>
             </div>
           </div>
         </div>
+        <div class="col-lg-1 col-md-1"></div>
       </div>
-
-</div>
-
-<div class="col-lg-1 col-md-1"></div>
-
     </div>
-  
   </div>
-  
+</div>
