@@ -1,116 +1,133 @@
 <div class="row">
-    <div class="col-lg-2 col-md-2"></div>
-    <div class="col-lg-8 col-md-8">
-      <div class="container my-5">
-        <h2 class="mheading text-center mb-4">Enroll Now</h2>
-  
-        <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="p-4 bg-light rounded shadow">
-  
-          <!-- User Details -->
-          <div class="mb-3">
-            <input type="text" [(ngModel)]="enrollData.name" name="name" class="form-control" placeholder="Full Name *" required>
-          </div>
-          <div class="mb-3">
-            <input type="email" [(ngModel)]="enrollData.email" name="email" class="form-control" placeholder="Email *" required>
-          </div>
-          <div class="mb-3">
-            <input type="text" [(ngModel)]="enrollData.phone" name="phone" class="form-control" placeholder="Phone Number *" required>
-          </div>
-  
-          <!-- Course Selection -->
-          <div class="mb-3">
-            <label class="form-label"><b>Select Course *</b></label>
-            <select name="course" [(ngModel)]="enrollData.course" id="course" class="form-select" required>
-              <option value="" disabled selected>Select Course</option>
-              <option value="PHP ">PHP </option>
-              <option value="Angular ">Angular JS </option>
-              <option value="React JS ">React JS </option>
-              <option value="Django  ">Django   </option>
-              <option value="JavaScript">JavaScript   </option>
-              <option value="Flutter">Flutter Development  </option>
-              <option value="Android Development">Android Development   </option>
+  <div class="col-lg-2 col-md-2"></div>
+  <div class="col-lg-8 col-md-8">
+    <div class="container my-5">
+      <h2 class="mheading text-center mb-4">Enroll Now</h2>
 
-              <option value="Digital Marketing">Digital Marketing   </option>
+      <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="p-4 bg-light rounded shadow">
+
+        <!-- User Details -->
+        <div class="mb-3">
+          <input type="text" [(ngModel)]="enrollData.name" name="name" class="form-control" placeholder="Full Name *"
+            required>
+        </div>
+        <div class="mb-3">
+          <input type="email" [(ngModel)]="enrollData.email" name="email" class="form-control" placeholder="Email *"
+            required>
+        </div>
+        <div class="mb-3">
+          <input type="text" [(ngModel)]="enrollData.phone" name="phone" class="form-control"
+            placeholder="Phone Number *" required>
+        </div>
+
+        <!-- Course Selection -->
+        <div class="mb-3">
+          <label class="form-label"><b>Select Course *</b></label>
+          <select name="course" [(ngModel)]="enrollData.course" id="course" class="form-select" required>
+            <option value="" disabled selected>Select Course</option>
+            <option value="PHP ">PHP Language </option>
+            <option value="Angular ">Angular Course </option>
+            <option value="React JS ">React Course </option>
+            <option value="Django  ">Django Course </option>
+            <option value="Flutter">Flutter Development </option>
+            <option value="Java Language ">Java Language </option>
+            <option value="Digital Marketing">Digital Marketing </option>
+
+            <option value="Data Science ">Data Science & AI Course </option>
+            <option value="Graphics ">Graphics Designing </option>
+            <option value="Video Editing">Video Editing </option>
+            <option value="Full Stack Web">Full Stack Web Development </option>
+
+            <option value="Full Stack App ">Full Stack App Development </option>
 
 
-            </select>
-          </div>
-  
-          <!-- Duration (Radio Buttons) -->
-          <div class="mb-3">
-            <label class="form-label"><b>Course Duration *</b></label>
-            <div class="d-flex gap-3">
-              <div class="form-check">
-                <input type="radio" id="duration1" [(ngModel)]="enrollData.duration" name="duration" value="1 Month" class="form-check-input" required>
-                <label for="duration1" class="form-check-label">1 Month</label>
-              </div>
-              <div class="form-check">
-                <input type="radio" id="duration3" [(ngModel)]="enrollData.duration" name="duration" value="3 Months" class="form-check-input">
-                <label for="duration3" class="form-check-label">3 Months</label>
-              </div>
-              <div class="form-check">
-                <input type="radio" id="duration6" [(ngModel)]="enrollData.duration" name="duration" value="6 Months" class="form-check-input">
-                <label for="duration6" class="form-check-label">6 Months</label>
-              </div>
+
+
+          </select>
+        </div>
+
+        <!-- Duration (Radio Buttons) -->
+        <div class="mb-3">
+          <label class="form-label"><b>Course Duration *</b></label>
+          <div class="d-flex gap-3">
+            <div class="form-check">
+              <input type="radio" id="duration1" [(ngModel)]="enrollData.duration" name="duration" value="1 Month"
+                class="form-check-input" required>
+              <label for="duration1" class="form-check-label">1 Month</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="duration3" [(ngModel)]="enrollData.duration" name="duration" value="3 Months"
+                class="form-check-input">
+              <label for="duration3" class="form-check-label">3 Months</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="duration6" [(ngModel)]="enrollData.duration" name="duration" value="6 Months"
+                class="form-check-input">
+              <label for="duration6" class="form-check-label">6 Months</label>
             </div>
           </div>
-  
-          <!-- Course Level (Radio Buttons) -->
-          <div class="mb-3">
-            <label class="form-label"><b>Course Level *</b></label>
-            <div class="d-flex gap-3">
-              <div class="form-check">
-                <input type="radio" id="beginner" [(ngModel)]="enrollData.level" name="level" value="Beginner" class="form-check-input" required>
-                <label for="beginner" class="form-check-label">Beginner</label>
-              </div>
-              <div class="form-check">
-                <input type="radio" id="advanced" [(ngModel)]="enrollData.level" name="level" value="Advanced" class="form-check-input">
-                <label for="advanced" class="form-check-label">Advanced</label>
-              </div>
+        </div>
+
+        <!-- Course Level (Radio Buttons) -->
+        <div class="mb-3">
+          <label class="form-label"><b>Course Level *</b></label>
+          <div class="d-flex gap-3">
+            <div class="form-check">
+              <input type="radio" id="beginner" [(ngModel)]="enrollData.level" name="level" value="Beginner"
+                class="form-check-input" required>
+              <label for="beginner" class="form-check-label">Beginner</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="advanced" [(ngModel)]="enrollData.level" name="level" value="Advanced"
+                class="form-check-input">
+              <label for="advanced" class="form-check-label">Advanced</label>
             </div>
           </div>
-  
-          <!-- Training Type -->
-          <div class="mb-3">
-            <label class="form-label"><b>Training Type *</b></label>
-            <div class="d-flex gap-3">
-              <div class="form-check">
-                <input type="radio" id="online" [(ngModel)]="enrollData.training_type" name="training_type" value="Online" class="form-check-input" required>
-                <label for="online" class="form-check-label">Online</label>
-              </div>
-              <div class="form-check">
-                <input type="radio" id="offline" [(ngModel)]="enrollData.training_type" name="training_type" value="Offline" class="form-check-input">
-                <label for="offline" class="form-check-label">Offline</label>
-              </div>
+        </div>
+
+        <!-- Training Type -->
+        <div class="mb-3">
+          <label class="form-label"><b>Training Type *</b></label>
+          <div class="d-flex gap-3">
+            <div class="form-check">
+              <input type="radio" id="online" [(ngModel)]="enrollData.training_type" name="training_type" value="Online"
+                class="form-check-input" required>
+              <label for="online" class="form-check-label">Online</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" id="offline" [(ngModel)]="enrollData.training_type" name="training_type"
+                value="Offline" class="form-check-input">
+              <label for="offline" class="form-check-label">Offline</label>
             </div>
           </div>
-  
-          <!-- How Did You Hear About Us? -->
-          <div class="mb-3">
-            <label class="form-label"><b>How Did You Hear About Us?</b></label>
-            <select name="source" [(ngModel)]="enrollData.source" id="source" class="form-select">
-              <option value="" disabled selected>Select Option</option>
-              <option value="Social Media">Social Media</option>
-              <option value="Friend/Referral">Friend/Referral</option>
-              <option value="Google Search">Google Search</option>
-              <option value="Advertisement">Advertisement</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-  
-          <!-- Additional Notes -->
-          <div class="mb-3">
-            <label class="form-label"><b>Additional Notes or Questions</b></label>
-            <textarea name="notes" [(ngModel)]="enrollData.notes" class="form-control" rows="4" placeholder="Enter any additional information or questions you have..."></textarea>
-          </div>
-  
-          <!-- Submit Button -->
-          <div class="d-grid">
-            <button type="submit" class="btn btn-success">Submit Enrollment</button>
-          </div>
-        </form>
-      </div>
+        </div>
+
+        <!-- How Did You Hear About Us? -->
+        <div class="mb-3">
+          <label class="form-label"><b>How Did You Hear About Us?</b></label>
+          <select name="source" [(ngModel)]="enrollData.source" id="source" class="form-select">
+            <option value="" disabled selected>Select Option</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Friend/Referral">Friend/Referral</option>
+            <option value="Google Search">Google Search</option>
+            <option value="Advertisement">Advertisement</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- Additional Notes -->
+        <div class="mb-3">
+          <label class="form-label"><b>Additional Notes or Questions</b></label>
+          <textarea name="notes" [(ngModel)]="enrollData.notes" class="form-control" rows="4"
+            placeholder="Enter any additional information or questions you have..."></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-success">Submit Enrollment</button>
+        </div>
+      </form>
     </div>
-    <div class="col-lg-2 col-md-2"></div>
   </div>
-  
+  <div class="col-lg-2 col-md-2"></div>
+</div>

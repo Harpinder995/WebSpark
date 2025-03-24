@@ -1,35 +1,51 @@
-<div class="container my-5">
-  <h2 class="text-center mheading">Build Your Future with Expert Training</h2>
-  <p class=" text-center">At WebSpark, we offer industry-focused courses designed to equip you with the latest skills and hands-on experience. Whether you're a beginner or looking to upgrade your expertise, our courses provide practical training, real-world projects, and expert mentorship to help you excel in the tech industry. <br>
-    Explore our wide range of web development, programming, and technology courses and take the next step toward a successful career! 🚀 </p>
+<div class="row">
+  <div class="col-lg-1 col-md-1"></div>
+  <div class="col-lg-10 col-md-10">
+    <div class="container my-5">
+      <h2 class="text-center mheading">Build Your Future with Expert Training</h2>
+      <p class=" text-center">At WebSpark, we offer industry-focused courses designed to equip you with the latest
+        skills and hands-on experience. Whether you're a beginner or looking to upgrade your expertise, our courses
+        provide practical training, real-world projects, and expert mentorship to help you excel in the tech industry.
+        <br>
+        Explore our wide range of web development, programming, and technology courses and take the next step toward a
+        successful career! 🚀 </p>
+      <!-- 🔹 Display Filtered Courses -->
 
-    <div class=" mb-4">
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-outline-success m-1" (click)="filterCourses('all')">All Courses</button>
-        <button type="button" class="btn btn-outline-success m-1" (click)="filterCourses('frontend')">Frontend Development</button>
-        <button type="button" class="btn btn-outline-success m-1" (click)="filterCourses('backend')">Backend Development</button>
-        <button type="button" class="btn btn-outline-success m-1" (click)="filterCourses('app')">App Development</button>
+
+
+      <div class="mb-4">
+        <div class="d-flex flex-wrap">
+          <button type="button" class="btn btn-outline-success m-1 flex-fill" (click)="filterCourses('all')">All Courses</button>
+          <button type="button" class="btn btn-outline-success m-1 flex-fill" (click)="filterCourses('frontend')">Frontend Development</button>
+          <button type="button" class="btn btn-outline-success m-1 flex-fill" (click)="filterCourses('backend')">Backend Development</button>
+          <button type="button" class="btn btn-outline-success m-1 flex-fill" (click)="filterCourses('app')">App Development</button>
+          <button type="button" class="btn btn-outline-success m-1 flex-fill" (click)="filterCourses('marketing')">Digital Marketing</button>
+          <button type="button" class="btn btn-outline-success m-1 flex-fill" (click)="filterCourses('others')">Other Courses</button>
+        </div>
       </div>
-    </div>
-  
-    <!-- 🔹 Display Filtered Courses -->
-    <div class="row">
-      <div class="col-md-4 mb-4" *ngFor="let course of filteredCourses">
-        <div class="card shadow-lg m-2 p-1">
-          <img [src]="course.image" class="card-img-top" [alt]="course.title">
-          <div class="card-body text-center">
-            <h5 class="cardtitle">{{ course.title }}</h5>
-            <p class="card-text">{{ course.description }}</p>
-            <a routerLink="/enroll" class="btn btn-success">Enroll Now</a>
+
+      <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let course of filteredCourses">
+          <div class="card shadow-lg m-2 p-1">
+            <img [src]="course.image" class="card-img-top" [alt]="course.title">
+            <div class="card-body text-center">
+              <h5 class="cardtitle">{{ course.title }}</h5>
+              <p class="card-text">{{ course.description }}</p>
+              <a routerLink="/enroll" class="btn btn-success">Enroll Now</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
- <!-- Call to Action -->
- <div class="text-center mt-5">
-  <h3 style="color: #ff7200;">Start Your Learning Journey Today!</h3>
-  <p>Boost your career with industry-leading courses. Enroll now and gain hands-on experience.</p>
-</div>
+      <!-- Call to Action -->
+      <div class="text-center mt-5">
+        <h3 style="color: #ff7200;">Start Your Learning Journey Today!</h3>
+        <p>Boost your career with industry-leading courses. Enroll now and gain hands-on experience.</p>
+      </div>
 
+
+    </div>
+
+  </div>
+  <div class="col-lg-1 col-md-1"></div>
 
 </div>
