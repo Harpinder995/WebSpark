@@ -1,93 +1,35 @@
 <div class="container my-5">
-  <!-- Hero Section -->
-  <div class="text-center mb-5">
-    <h1 class="mheading">Our Courses</h1>
-    <p>Explore our industry-focused courses designed to enhance your skills and career growth.</p>
-  </div>
+  <h2 class="text-center mheading">Build Your Future with Expert Training</h2>
+  <p class=" text-center">At WebSpark, we offer industry-focused courses designed to equip you with the latest skills and hands-on experience. Whether you're a beginner or looking to upgrade your expertise, our courses provide practical training, real-world projects, and expert mentorship to help you excel in the tech industry. <br>
+    Explore our wide range of web development, programming, and technology courses and take the next step toward a successful career! 🚀 </p>
 
-  <!-- Courses Grid -->
-  <div class="row">
-    <!-- Course 1 -->
-    <div class="col-md-4 col-lg-4">
-      <div class="card shadow-lg">
-        <img src="assets/images/php.jpeg" class="card-img-top"  alt="PHP Development">
-        <div class="card-body text-center">
-          <h5 class="cardtitle ">PHP Development</h5>
-          <p class="card-text ">Master backend development with PHP and MySQL, perfect for building dynamic web applications.</p>
-          <a href="#" class="btn btn-success " routerLink="/enroll">Enroll Now</a>
+    <div class=" mb-4">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-outline-success m-1" (click)="filterCourses('all')">All Courses</button>
+        <button type="button" class="btn btn-outline-success m-1" (click)="filterCourses('frontend')">Frontend Development</button>
+        <button type="button" class="btn btn-outline-success m-1" (click)="filterCourses('backend')">Backend Development</button>
+        <button type="button" class="btn btn-outline-success m-1" (click)="filterCourses('app')">App Development</button>
+      </div>
+    </div>
+  
+    <!-- 🔹 Display Filtered Courses -->
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let course of filteredCourses">
+        <div class="card shadow-lg m-2 p-1">
+          <img [src]="course.image" class="card-img-top" [alt]="course.title">
+          <div class="card-body text-center">
+            <h5 class="cardtitle">{{ course.title }}</h5>
+            <p class="card-text">{{ course.description }}</p>
+            <a routerLink="/enroll" class="btn btn-success">Enroll Now</a>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Course 2 -->
-    <div class="col-md-4">
-      <div class="card shadow-lg">
-        <img src="assets/images/angular.jpeg" class="card-img-top" alt="Angular Training">
-        <div class="card-body text-center">
-          <h5 class="cardtitle">Angular Training</h5>
-          <p class="card-text">Learn to build modern, scalable web applications using Angular framework.</p>
-          <a href="#" class="btn btn-success" routerLink="/enroll">Enroll Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Course 3 -->
-    <div class="col-md-4">
-      <div class="card shadow-lg">
-        <img src="assets/images/react.jpeg" class="card-img-top" alt="React JS Course">
-        <div class="card-body text-center">
-          <h5 class="cardtitle">React JS Course</h5>
-          <p class="card-text">Become a front-end expert by learning React and building interactive web applications.</p>
-          <a href="#" class="btn btn-success" routerLink="/enroll">Enroll Now</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- More Courses Row -->
-  <div class="row mt-4">
-    <!-- Course 4 -->
-    <div class="col-md-4">
-      <div class="card shadow-lg">
-        <img src="assets/images/django.png" class="card-img-top" alt="Django Full Stack">
-        <div class="card-body text-center">
-          <h5 class="cardtitle">Django Full Stack</h5>
-          <p class="card-text">Build powerful and scalable web applications using Django and Python.</p>
-          <a href="#" class="btn btn-success" routerLink="/enroll">Enroll Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Course 5 -->
-    <div class="col-md-4">
-      <div class="card shadow-lg">
-        <img src="assets/images/java.png" class="card-img-top" alt="JavaScript Mastery">
-        <div class="card-body text-center">
-          <h5 class="cardtitle">JavaScript Mastery</h5>
-          <p class="card-text">Enhance your front-end skills by learning JavaScript, ES6, and advanced techniques.</p>
-          <a href="#" class="btn btn-success" routerLink="/enroll">Enroll Now</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Course 6 -->
-    <div class="col-md-4">
-      <div class="card shadow-lg">
-        <img src="assets/images/flutter.jpeg" class="card-img-top" alt="Python Programming">
-        <div class="card-body text-center">
-          <h5 class="cardtitle">Python Programming</h5>
-          <p class="card-text">Learn Python from scratch and explore data science, automation, and AI development.</p>
-          <a href="#" class="btn btn-success" routerLink="/enroll">Enroll Now</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Call to Action -->
-  <div class="text-center mt-5">
-    <h3 style="color: #ff7200;">Start Your Learning Journey Today!</h3>
-    <p>Boost your career with industry-leading courses. Enroll now and gain hands-on experience.</p>
-  </div>
+ <!-- Call to Action -->
+ <div class="text-center mt-5">
+  <h3 style="color: #ff7200;">Start Your Learning Journey Today!</h3>
+  <p>Boost your career with industry-leading courses. Enroll now and gain hands-on experience.</p>
 </div>
 
 
+</div>
