@@ -1,0 +1,35 @@
+<div class="container my-5">
+    <h2 class="text-center mb-4">Register for the Webinar</h2>
+    <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="p-4 bg-light rounded shadow">
+      <div class="mb-3">
+        <input type="text" [(ngModel)]="webinarData.name" name="name" class="form-control" placeholder="Full Name" required />
+      </div>
+      <div class="mb-3">
+        <input type="email" [(ngModel)]="webinarData.email" name="email" class="form-control" placeholder="Email" required />
+      </div>
+      <div class="mb-3">
+        <input type="text" [(ngModel)]="webinarData.phone" name="phone" class="form-control" placeholder="Phone Number" required />
+      </div>
+  
+      <div class="mb-3">
+        <label>Select Webinar Topics:</label>
+        <div class="form-check">
+          <input type="checkbox" [(ngModel)]="webinarTopics['Angular']" name="angular" class="form-check-input" (change)="onTopicChange()" />
+          <label class="form-check-label">Angular</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" [(ngModel)]="webinarTopics['React']" name="react" class="form-check-input" (change)="onTopicChange()" />
+          <label class="form-check-label">React</label>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" [(ngModel)]="webinarTopics['Python']" name="python" class="form-check-input" (change)="onTopicChange()" />
+          <label class="form-check-label">Python</label>
+        </div>
+      </div>
+  
+      <div class="d-grid">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </form>
+  </div>
+  
