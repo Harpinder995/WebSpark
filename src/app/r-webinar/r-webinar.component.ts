@@ -33,11 +33,11 @@ export class RWebinarComponent {
       .filter((topic) => this.webinarTopics[topic]) // Filter only selected topics
       .join(', ');
     this.webinarData.webinar_topic = selectedTopics;
-    console.log('Selected Webinar Topics:', this.webinarData.webinar_topic);
+   // console.log('Selected Webinar Topics:', this.webinarData.webinar_topic);
   }
 
   onSubmit() {
-    console.log('Submitting webinarData:', this.webinarData);
+  //  console.log('Submitting webinarData:', this.webinarData);
 
     // Validate required fields
     if (!this.webinarData.name || !this.webinarData.email || !this.webinarData.phone || !this.webinarData.webinar_topic) {

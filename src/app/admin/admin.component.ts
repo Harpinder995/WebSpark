@@ -1,7 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { AdminService } from '../services/admin.service'; // Import Admin Service
 import { CommonModule } from '@angular/common'; // Import CommonModule for *ngIf, *ngFor
-import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-admin',
@@ -14,11 +13,12 @@ export class AdminComponent implements AfterViewInit {
   currentSection = 'dashboard'; // Default section
   contactQueries: any[] = [];
   courseEnrollments: any[] = [];
+  webinars: any[] = [];  // Declare webinars array
   currentPage: number = 1; // Pagination for queries
   currentEnrollmentPage: number = 1; // Pagination for enrollments
+  currentWebinarPage: number = 1;  // Pagination for webinars
   itemsPerPage: number = 8; // 8 items per page (applies to both queries and enrollments)
-  private chart: Chart | null = null;
-
+  
   constructor(private adminService: AdminService) {}
 
   ngAfterViewInit() {
@@ -50,12 +50,23 @@ export class AdminComponent implements AfterViewInit {
     );
   }
 
+  // Load Webinar Registrations
+  loadWebinars() {
+    this.adminService.getWebinars().subscribe(
+      (data) => {
+        this.webinars = data;  // This should now work correctly
+      },
+      (error) => {
+        console.error('Failed to load webinars', error);
+      }
+    );
+  }
+
   // Load Dashboard Data
   loadDashboardData() {
     this.adminService.getDashboardData().subscribe(
       (data) => {
-        const chartData = [data.totalEnrollments, data.totalQueries];
-        this.createChart(chartData);
+        // Handle dashboard data here
       },
       (error) => {
         console.error('Failed to load dashboard data', error);
@@ -63,45 +74,17 @@ export class AdminComponent implements AfterViewInit {
     );
   }
 
-  // Change the visible section (dashboard, queries, enrollments)
+  // Change the visible section (dashboard, queries, enrollments, webinars)
   showSection(section: string) {
     this.currentSection = section;
     if (section === 'queries') {
       this.loadContactQueries();
     } else if (section === 'enrollments') {
       this.loadCourseEnrollments();
+    } else if (section === 'webinars') {
+      this.loadWebinars();  // Load webinars when section is 'webinars'
     } else if (section === 'dashboard') {
-      setTimeout(() => this.loadDashboardData(), 0);
-    }
-  }
-
-  // Create Dashboard Chart
-  private createChart(chartData: number[]) {
-    if (this.chart) {
-      this.chart.destroy();
-    }
-
-    const ctx = document.getElementById('enrollmentChart') as HTMLCanvasElement;
-    if (ctx) {
-      this.chart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: ['Enrollments', 'Queries'],
-          datasets: [
-            {
-              label: 'Dashboard Stats',
-              data: chartData,
-              backgroundColor: ['#007bff', '#28a745'],
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: { beginAtZero: true },
-          },
-        },
-      });
+      this.loadDashboardData();
     }
   }
 
@@ -146,6 +129,28 @@ export class AdminComponent implements AfterViewInit {
   prevEnrollmentPage() {
     if (this.currentEnrollmentPage > 1) {
       this.currentEnrollmentPage--;
+    }
+  }
+
+  // Pagination logic for Webinars
+  get totalWebinarPages(): number {
+    return Math.ceil(this.webinars.length / this.itemsPerPage);
+  }
+
+  paginatedWebinars(): any[] {
+    const startIndex = (this.currentWebinarPage - 1) * this.itemsPerPage;
+    return this.webinars.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
+  nextWebinarPage() {
+    if (this.currentWebinarPage < this.totalWebinarPages) {
+      this.currentWebinarPage++;
+    }
+  }
+
+  prevWebinarPage() {
+    if (this.currentWebinarPage > 1) {
+      this.currentWebinarPage--;
     }
   }
 }

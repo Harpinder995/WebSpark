@@ -7,7 +7,6 @@
         <div class="col-md-2 sidebar">
           <div class="logo">
             <img src="assets/images/logo1.png" alt="Logo" width="170" height="65" />
-           
           </div>
           <a (click)="showSection('queries')" [class.active]="currentSection === 'queries'">
             <i class="fas fa-envelope"></i> Contact Queries
@@ -17,6 +16,9 @@
           </a>
           <a (click)="showSection('dashboard')" [class.active]="currentSection === 'dashboard'">
             <i class="fas fa-chart-line"></i> Dashboard Stats
+          </a>
+          <a (click)="showSection('webinars')" [class.active]="currentSection === 'webinars'">
+            <i class="fas fa-video"></i> Webinar Registrations
           </a>
         </div>
 
@@ -56,7 +58,6 @@
           <!-- Queries Section -->
           <div *ngIf="currentSection === 'queries'" class="queries-container">
             <h2 class="my-4 text-center sticky-header">Contact Queries</h2>
-            
             <div class="scrollable-content">
               <div *ngFor="let query of paginatedQueries()" class="query-card card p-3 mb-3 shadow rounded">
                 <h5 class="card-title">{{ query.name }}</h5>
@@ -73,7 +74,6 @@
                 </div>
               </div>
             </div>
-          
             <!-- Pagination outside the scroll -->
             <div class="pagination-controls text-center mt-3">
               <button class="btn btn-outline-secondary mx-2" (click)="prevPage()" [disabled]="currentPage === 1">
@@ -114,6 +114,38 @@
               </button>
               <span>Page {{ currentEnrollmentPage }} of {{ totalEnrollmentPages }}</span>
               <button class="btn btn-outline-secondary mx-2" (click)="nextEnrollmentPage()" [disabled]="currentEnrollmentPage === totalEnrollmentPages">
+                Next <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Webinar Registration Section -->
+          <div *ngIf="currentSection === 'webinars'" class="webinars-container">
+            <h2 class="my-4 text-center sticky-header">Webinar Registrations</h2>
+            <div class="scrollable-content">
+              <div *ngFor="let registration of paginatedWebinars()" class="webinar-card card p-3 mb-3 shadow rounded">
+                <h5 class="card-title">{{ registration.name }}</h5>
+                <p><b>Email:</b> {{ registration.email }}</p>
+                <p><b>Phone:</b> {{ registration.phone }}</p>
+                <p><b>Webinar Topic:</b> {{ registration.topic }}</p>
+                <p><b>Registration Date:</b> {{ registration.registrationDate }}</p>
+                <div class="actions mt-2">
+                  <a [href]="'mailto:' + registration.email" class="btn btn-primary btn-sm">
+                    <i class="fas fa-envelope"></i> Email
+                  </a>
+                  <a [href]="'tel:' + registration.phone" class="btn btn-success btn-sm">
+                    <i class="fas fa-phone"></i> Call
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="pagination-controls text-center sticky-pagination">
+              <button class="btn btn-outline-secondary mx-2" (click)="prevWebinarPage()" [disabled]="currentWebinarPage === 1">
+                <i class="fas fa-chevron-left"></i> Previous
+              </button>
+              <span>Page {{ currentWebinarPage }} of {{ totalWebinarPages }}</span>
+              <button class="btn btn-outline-secondary mx-2" (click)="nextWebinarPage()" [disabled]="currentWebinarPage === totalWebinarPages">
                 Next <i class="fas fa-chevron-right"></i>
               </button>
             </div>
