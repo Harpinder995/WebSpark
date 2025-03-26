@@ -96,7 +96,7 @@
                 <p><b>Phone:</b> {{ enrollment.phone }}</p>
                 <p><b>Course:</b> {{ enrollment.course }}</p>
                 <p><b>Duration:</b> {{ enrollment.duration }}</p>
-                <p><b>Training Type:</b> {{ enrollment.type }}</p>
+                <p><b>Training Type:</b> {{ enrollment.training_type }}</p>
                 <div class="actions mt-2">
                   <a [href]="'mailto:' + enrollment.email" class="btn btn-primary btn-sm">
                     <i class="fas fa-envelope"></i> Email
@@ -127,8 +127,7 @@
                 <h5 class="card-title">{{ registration.name }}</h5>
                 <p><b>Email:</b> {{ registration.email }}</p>
                 <p><b>Phone:</b> {{ registration.phone }}</p>
-                <p><b>Webinar Topic:</b> {{ registration.topic }}</p>
-                <p><b>Registration Date:</b> {{ registration.registrationDate }}</p>
+                <p><b>Webinar Topic:</b> {{ registration.webinar_topic }}</p>
                 <div class="actions mt-2">
                   <a [href]="'mailto:' + registration.email" class="btn btn-primary btn-sm">
                     <i class="fas fa-envelope"></i> Email
