@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AdminService {
   private apiBaseUrl = 'http://localhost/websparkback/api';  // New API folder base URL
 
@@ -34,5 +35,20 @@ export class AdminService {
         return response.data && Array.isArray(response.data) ? response.data : [];
       })
     );
+  }
+
+  // Delete a contact query by ID
+  deleteContactQuery(queryId: number) {
+    const url = `${this.apiBaseUrl}/deletecontacts.php?id=${queryId}`;  // Ensure correct query ID is passed in the URL
+    return this.http.delete(url);
+  }
+
+  deleteEnrollment(enrollmentId: number): Observable<any> {
+    const url = `${this.apiBaseUrl}/delete_enrollment.php?id=${enrollmentId}`; // Send ID as query parameter
+    return this.http.delete<any>(url);
+  }
+  deleteWebinarRegistration(registrationId: number): Observable<any> {
+    const url = `${this.apiBaseUrl}/deletewebinar.php?id=${registrationId}`; // Send ID as query parameter
+    return this.http.delete<any>(url);
   }
 }
