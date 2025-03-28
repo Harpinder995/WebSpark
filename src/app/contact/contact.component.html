@@ -9,26 +9,30 @@
     <!-- Contact Form -->
     <div class="col-md-6">
       <div class="card p-4 shadow-lg">
-        <h4 class="mb-3" >Get in Touch</h4>
-   
-     
-          <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="p-4 bg-light rounded shadow">
-            <div class="mb-3">
-              <input type="text" [(ngModel)]="contactData.name" name="name" class="form-control" placeholder="Full Name" required>
-            </div>
-            <div class="mb-3">
-              <input type="email" [(ngModel)]="contactData.email" name="email" class="form-control" placeholder="Email" required>
-            </div>
-            <div class="mb-3">
-              <input type="text" [(ngModel)]="contactData.phone" name="phone" class="form-control" placeholder="Phone Number" required>
-            </div>
-            <div class="mb-3">
-              <textarea [(ngModel)]="contactData.message" name="message" class="form-control" placeholder="Message" required></textarea>
-            </div>
-            <div class="d-grid">
-              <button type="submit" class="btn btn-success">Submit</button>
-            </div>
-          </form>
+        <h4 class="mb-3">Get in Touch</h4>
+
+
+        <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="p-4 bg-light rounded shadow">
+          <div class="mb-3">
+            <input type="text" [(ngModel)]="contactData.name" name="name" class="form-control" placeholder="Full Name"
+              required>
+          </div>
+          <div class="mb-3">
+            <input type="email" [(ngModel)]="contactData.email" name="email" class="form-control" placeholder="Email"
+              required>
+          </div>
+          <div class="mb-3">
+            <input type="text" [(ngModel)]="contactData.phone" name="phone" class="form-control"
+              placeholder="Phone Number" required>
+          </div>
+          <div class="mb-3">
+            <textarea [(ngModel)]="contactData.message" name="message" class="form-control" placeholder="Message"
+              required></textarea>
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-success">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
 
@@ -36,7 +40,8 @@
     <div class="col-md-6">
       <div class="card p-4 shadow-lg">
         <h4 class="mb-3">Contact Information</h4>
-        <p><i class="fa fa-map-marker "  style="color: #ff7200;"></i> WebSpark Pvt. Ltd., Near Natt Road, Talwandi Sabo (Bathinda) Pin.151302</p>
+        <p><i class="fa fa-map-marker " style="color: #ff7200;"></i> WebSpark Pvt. Ltd., Near Natt Road, Talwandi Sabo
+          (Bathinda) Pin.151302</p>
         <p><i class="fa fa-envelope" style="color: #ff7200;"></i> contact&#64;webspark.com</p>
         <p><i class="fa fa-phone " style="color: #ff7200;"></i> +91 6280200001</p>
 
@@ -55,14 +60,11 @@
   <div class="mt-5">
     <h4 class="text-center" style="color: #ff7200;">Find Us on Google Maps</h4>
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4109.199501043403!2d75.08385346328552!3d29.996349127548214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391129730d1747e1%3A0x9c2cd8812c25ea4!2sTalwandi%20Sabo%2C%20Punjab%20151302!5e0!3m2!1sen!2sin!4v1741681114960!5m2!1sen!2sin" 
-          width="100%" 
-          height="400" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4109.199501043403!2d75.08385346328552!3d29.996349127548214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391129730d1747e1%3A0x9c2cd8812c25ea4!2sTalwandi%20Sabo%2C%20Punjab%20151302!5e0!3m2!1sen!2sin!4v1741681114960!5m2!1sen!2sin"
+        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
       </iframe>
-  </div>
+    </div>
   </div>
 </div>

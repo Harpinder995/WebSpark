@@ -80,7 +80,8 @@
                 <i class="fas fa-chevron-left"></i> Previous
               </button>
               <span>Page {{ currentPage }} of {{ totalPages }}</span>
-              <button class="btn btn-outline-secondary mx-2" (click)="nextPage()" [disabled]="currentPage === totalPages">
+              <button class="btn btn-outline-secondary mx-2" (click)="nextPage()"
+                [disabled]="currentPage === totalPages">
                 Next <i class="fas fa-chevron-right"></i>
               </button>
             </div>
@@ -90,7 +91,8 @@
           <div *ngIf="currentSection === 'enrollments'" class="enrollments-container">
             <h2 class="my-4 text-center sticky-header">Course Enrollments</h2>
             <div class="scrollable-content">
-              <div *ngFor="let enrollment of paginatedEnrollments()" class="enrollment-card card p-3 mb-3 shadow rounded">
+              <div *ngFor="let enrollment of paginatedEnrollments()"
+                class="enrollment-card card p-3 mb-3 shadow rounded">
                 <h5 class="card-title">{{ enrollment.name }}</h5>
                 <p><b>Email:</b> {{ enrollment.email }}</p>
                 <p><b>Phone:</b> {{ enrollment.phone }}</p>
@@ -99,7 +101,7 @@
                 <p><b>Training Type:</b> {{ enrollment.training_type }}</p>
                 <div class="actions mt-2">
                   <a [href]="'mailto:' + enrollment.email" class="btn btn-primary btn-sm">
-                    <i class="fas fa-envelope"></i> Email
+                    <i class="fas fa-envelope"></i> Reply
                   </a>
                   <a [href]="'tel:' + enrollment.phone" class="btn btn-success btn-sm">
                     <i class="fas fa-phone"></i> Call
@@ -109,11 +111,13 @@
             </div>
 
             <div class="pagination-controls text-center sticky-pagination">
-              <button class="btn btn-outline-secondary mx-2" (click)="prevEnrollmentPage()" [disabled]="currentEnrollmentPage === 1">
+              <button class="btn btn-outline-secondary mx-2" (click)="prevEnrollmentPage()"
+                [disabled]="currentEnrollmentPage === 1">
                 <i class="fas fa-chevron-left"></i> Previous
               </button>
               <span>Page {{ currentEnrollmentPage }} of {{ totalEnrollmentPages }}</span>
-              <button class="btn btn-outline-secondary mx-2" (click)="nextEnrollmentPage()" [disabled]="currentEnrollmentPage === totalEnrollmentPages">
+              <button class="btn btn-outline-secondary mx-2" (click)="nextEnrollmentPage()"
+                [disabled]="currentEnrollmentPage === totalEnrollmentPages">
                 Next <i class="fas fa-chevron-right"></i>
               </button>
             </div>
@@ -130,7 +134,7 @@
                 <p><b>Webinar Topic:</b> {{ registration.webinar_topic }}</p>
                 <div class="actions mt-2">
                   <a [href]="'mailto:' + registration.email" class="btn btn-primary btn-sm">
-                    <i class="fas fa-envelope"></i> Email
+                    <i class="fas fa-envelope"></i> Reply
                   </a>
                   <a [href]="'tel:' + registration.phone" class="btn btn-success btn-sm">
                     <i class="fas fa-phone"></i> Call
@@ -140,11 +144,13 @@
             </div>
 
             <div class="pagination-controls text-center sticky-pagination">
-              <button class="btn btn-outline-secondary mx-2" (click)="prevWebinarPage()" [disabled]="currentWebinarPage === 1">
+              <button class="btn btn-outline-secondary mx-2" (click)="prevWebinarPage()"
+                [disabled]="currentWebinarPage === 1">
                 <i class="fas fa-chevron-left"></i> Previous
               </button>
               <span>Page {{ currentWebinarPage }} of {{ totalWebinarPages }}</span>
-              <button class="btn btn-outline-secondary mx-2" (click)="nextWebinarPage()" [disabled]="currentWebinarPage === totalWebinarPages">
+              <button class="btn btn-outline-secondary mx-2" (click)="nextWebinarPage()"
+                [disabled]="currentWebinarPage === totalWebinarPages">
                 Next <i class="fas fa-chevron-right"></i>
               </button>
             </div>

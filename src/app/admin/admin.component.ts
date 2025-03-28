@@ -31,6 +31,8 @@ export class AdminComponent implements AfterViewInit {
     this.adminService.getContactQueries().subscribe(
       (data) => {
         this.contactQueries = data;
+        // Sort contact queries to show latest first
+        this.contactQueries.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
       },
       (error) => {
         console.error('Failed to load contact queries', error);
@@ -43,6 +45,8 @@ export class AdminComponent implements AfterViewInit {
     this.adminService.getCourseEnrollments().subscribe(
       (data) => {
         this.courseEnrollments = data;
+        // Sort course enrollments to show latest first
+        this.courseEnrollments.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
       },
       (error) => {
         console.error('Failed to load course enrollments', error);
@@ -55,6 +59,8 @@ export class AdminComponent implements AfterViewInit {
     this.adminService.getWebinars().subscribe(
       (data) => {
         this.webinars = data;  // This should now work correctly
+        // Sort webinars to show latest first
+        this.webinars.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
       },
       (error) => {
         console.error('Failed to load webinars', error);
