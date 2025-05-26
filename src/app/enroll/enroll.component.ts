@@ -27,6 +27,10 @@ export class EnrollComponent {
   constructor(private enrollService: EnrollService) {}
 
   onSubmit() {
+         if (!this.enrollData.name || !this.enrollData.email || !this.enrollData.course|| !this.enrollData.phone) {
+    alert('Please fill in all required fields: Name, Email, Phone and Course.');
+    return;  // Stop submission
+  }
     this.enrollService.submitEnrollment(this.enrollData).subscribe(
       (response) => {
         alert('Enrollment submitted successfully! Please check your email for further details');

@@ -22,6 +22,10 @@ export class ContactComponent {
   constructor(private contactService: ContactService) {}
 
   onSubmit() {
+      if (!this.contactData.name || !this.contactData.email || !this.contactData.phone|| !this.contactData.message) {
+    alert('Please fill in all required fields: Name, Email, Phone and Message.');
+    return;  // Stop submission
+  }
   this.contactService.submitForm(this.contactData).subscribe(
     (response) => {
       alert('Message sent successfully! Please check your email for further details');
