@@ -7,6 +7,7 @@ import { ContactComponent } from './contact/contact.component';
 import { EnrollComponent } from './enroll/enroll.component';
 import { AdminComponent } from './admin/admin.component';
 import { RWebinarComponent } from './r-webinar/r-webinar.component';
+import { FeesComponent } from './fees/fees.component';
 
 export const routes: Routes = [
     {path:"",component:HomeComponent},
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path:"courses",component:CoursesComponent},
     {path:"enroll",component:EnrollComponent},
     {path:"admin",component:AdminComponent},
+     {path:"fees",component:FeesComponent},
     {path:"rwebinar",component:RWebinarComponent},
 
 
